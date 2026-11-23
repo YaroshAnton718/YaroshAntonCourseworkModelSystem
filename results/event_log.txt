@@ -1,0 +1,116 @@
+Фрагмент 1. Протокол подій (D7, параметри за замовчуванням, зерно ГВЧ = 7)
+вхід  - запуск переходу (маркери вилучено з вхідних позицій)
+вихід - завершення затримки (маркери додано у вихідні позиції)
+M - позиції з ненульовим маркуванням (CPU1, CPU2, CH12, CH21 - вільні ресурси)
+
+t=    0.0000  вхід   arrive    M: CPU1=1, CPU2=1, CH12=1, CH21=1   -> вихід у t=7.9051
+t=    7.9051  вихід  arrive    M: Pgen=1, P0=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1
+t=    7.9051  вхід   prim      M: Pgen=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1   -> вихід у t=9.9051
+t=    7.9051  вхід   arrive    M: CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1   -> вихід у t=18.1204
+t=    9.9051  вихід  prim      M: B1=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1
+t=    9.9051  вхід   loc       M: CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1   -> вихід у t=9.9051
+t=    9.9051  вихід  loc       M: Q1=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1
+t=    9.9051  вхід   search1   M: CPU2=1, CH12=1, CH21=1, ARR=1   -> вихід у t=27.9348
+t=   18.1204  вихід  arrive    M: Pgen=1, P0=1, CPU2=1, CH12=1, CH21=1, ARR=2
+t=   18.1204  вхід   arrive    M: P0=1, CPU2=1, CH12=1, CH21=1, ARR=2   -> вихід у t=27.7223
+t=   18.1204  вхід   prim      M: CPU2=1, CH12=1, CH21=1, ARR=2   -> вихід у t=20.1204
+t=   20.1204  вихід  prim      M: B1=1, CPU2=1, CH12=1, CH21=1, ARR=2
+t=   20.1204  вхід   loc       M: CPU2=1, CH12=1, CH21=1, ARR=2   -> вихід у t=20.1204
+t=   20.1204  вихід  loc       M: Q1=1, CPU2=1, CH12=1, CH21=1, ARR=2
+t=   27.7223  вихід  arrive    M: Pgen=1, P0=1, Q1=1, CPU2=1, CH12=1, CH21=1, ARR=3
+t=   27.7223  вхід   arrive    M: P0=1, Q1=1, CPU2=1, CH12=1, CH21=1, ARR=3   -> вихід у t=39.6834
+t=   27.7223  вхід   prim      M: Q1=1, CPU2=1, CH12=1, CH21=1, ARR=3   -> вихід у t=29.7223
+t=   27.9348  вихід  search1   M: Q1=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=3, Done=1
+t=   27.9348  вхід   search1   M: CPU2=1, CH12=1, CH21=1, ARR=3, Done=1   -> вихід у t=46.4446
+t=   29.7223  вихід  prim      M: B1=1, CPU2=1, CH12=1, CH21=1, ARR=3, Done=1
+t=   29.7223  вхід   rem       M: CPU2=1, CH12=1, CH21=1, ARR=3, Done=1   -> вихід у t=29.7223
+t=   29.7223  вихід  rem       M: C1=1, CPU2=1, CH12=1, CH21=1, ARR=3, Done=1
+t=   29.7223  вхід   ch12      M: CPU2=1, CH21=1, ARR=3, Done=1   -> вихід у t=32.7223
+t=   32.7223  вихід  ch12      M: Q2=1, CPU2=1, CH12=1, CH21=1, ARR=3, Done=1
+t=   32.7223  вхід   search2   M: CH12=1, CH21=1, ARR=3, Done=1   -> вихід у t=52.6273
+t=   39.6834  вихід  arrive    M: Pgen=1, P0=1, CH12=1, CH21=1, ARR=4, Done=1
+t=   39.6834  вхід   arrive    M: P0=1, CH12=1, CH21=1, ARR=4, Done=1   -> вихід у t=51.8342
+t=   39.6834  вхід   prim      M: CH12=1, CH21=1, ARR=4, Done=1   -> вихід у t=41.6834
+t=   41.6834  вихід  prim      M: B1=1, CH12=1, CH21=1, ARR=4, Done=1
+t=   41.6834  вхід   loc       M: CH12=1, CH21=1, ARR=4, Done=1   -> вихід у t=41.6834
+t=   41.6834  вихід  loc       M: Q1=1, CH12=1, CH21=1, ARR=4, Done=1
+t=   46.4446  вихід  search1   M: Q1=1, CPU1=1, CH12=1, CH21=1, ARR=4, Done=2
+t=   46.4446  вхід   search1   M: CH12=1, CH21=1, ARR=4, Done=2   -> вихід у t=63.6785
+t=   51.8342  вихід  arrive    M: Pgen=1, P0=1, CH12=1, CH21=1, ARR=5, Done=2
+t=   51.8342  вхід   prim      M: Pgen=1, CH12=1, CH21=1, ARR=5, Done=2   -> вихід у t=53.8342
+t=   51.8342  вхід   arrive    M: CH12=1, CH21=1, ARR=5, Done=2   -> вихід у t=62.3238
+t=   52.6273  вихід  search2   M: R=1, CPU2=1, CH12=1, CH21=1, ARR=5, Done=2
+t=   52.6273  вхід   ch21      M: CPU2=1, CH12=1, ARR=5, Done=2   -> вихід у t=55.6273
+t=   53.8342  вихід  prim      M: B1=1, CPU2=1, CH12=1, ARR=5, Done=2
+t=   53.8342  вхід   loc       M: CPU2=1, CH12=1, ARR=5, Done=2   -> вихід у t=53.8342
+t=   53.8342  вихід  loc       M: Q1=1, CPU2=1, CH12=1, ARR=5, Done=2
+t=   55.6273  вихід  ch21      M: Q1=1, CPU2=1, CH12=1, CH21=1, ARR=5, Done=3
+t=   62.3238  вихід  arrive    M: Pgen=1, P0=1, Q1=1, CPU2=1, CH12=1, CH21=1, ARR=6, Done=3
+t=   62.3238  вхід   prim      M: Pgen=1, Q1=1, CPU2=1, CH12=1, CH21=1, ARR=6, Done=3   -> вихід у t=64.3238
+t=   62.3238  вхід   arrive    M: Q1=1, CPU2=1, CH12=1, CH21=1, ARR=6, Done=3   -> вихід у t=69.6814
+t=   63.6785  вихід  search1   M: Q1=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=6, Done=4
+t=   63.6785  вхід   search1   M: CPU2=1, CH12=1, CH21=1, ARR=6, Done=4   -> вихід у t=82.4001
+t=   64.3238  вихід  prim      M: B1=1, CPU2=1, CH12=1, CH21=1, ARR=6, Done=4
+t=   64.3238  вхід   loc       M: CPU2=1, CH12=1, CH21=1, ARR=6, Done=4   -> вихід у t=64.3238
+t=   64.3238  вихід  loc       M: Q1=1, CPU2=1, CH12=1, CH21=1, ARR=6, Done=4
+t=   69.6814  вихід  arrive    M: Pgen=1, P0=1, Q1=1, CPU2=1, CH12=1, CH21=1, ARR=7, Done=4
+t=   69.6814  вхід   arrive    M: P0=1, Q1=1, CPU2=1, CH12=1, CH21=1, ARR=7, Done=4   -> вихід у t=80.1948
+t=   69.6814  вхід   prim      M: Q1=1, CPU2=1, CH12=1, CH21=1, ARR=7, Done=4   -> вихід у t=71.6814
+t=   71.6814  вихід  prim      M: B1=1, Q1=1, CPU2=1, CH12=1, CH21=1, ARR=7, Done=4
+t=   71.6814  вхід   loc       M: Q1=1, CPU2=1, CH12=1, CH21=1, ARR=7, Done=4   -> вихід у t=71.6814
+t=   71.6814  вихід  loc       M: Q1=2, CPU2=1, CH12=1, CH21=1, ARR=7, Done=4
+t=   80.1948  вихід  arrive    M: Pgen=1, P0=1, Q1=2, CPU2=1, CH12=1, CH21=1, ARR=8, Done=4
+t=   80.1948  вхід   prim      M: Pgen=1, Q1=2, CPU2=1, CH12=1, CH21=1, ARR=8, Done=4   -> вихід у t=82.1948
+t=   80.1948  вхід   arrive    M: Q1=2, CPU2=1, CH12=1, CH21=1, ARR=8, Done=4   -> вихід у t=88.6593
+t=   82.1948  вихід  prim      M: B1=1, Q1=2, CPU2=1, CH12=1, CH21=1, ARR=8, Done=4
+
+Фрагмент 2. p = 0, інтервал надходження 2,5 с, усі затримки сталі (видно чергу до каналу 1->2)
+
+t=    0.0000  вхід   arrive    M: CPU1=1, CPU2=1, CH12=1, CH21=1   -> вихід у t=2.5000
+t=    2.5000  вихід  arrive    M: Pgen=1, P0=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1
+t=    2.5000  вхід   prim      M: Pgen=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1   -> вихід у t=4.5000
+t=    2.5000  вхід   arrive    M: CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1   -> вихід у t=5.0000
+t=    4.5000  вихід  prim      M: B1=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1
+t=    4.5000  вхід   rem       M: CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1   -> вихід у t=4.5000
+t=    4.5000  вихід  rem       M: C1=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=1
+t=    4.5000  вхід   ch12      M: CPU1=1, CPU2=1, CH21=1, ARR=1   -> вихід у t=7.5000
+t=    5.0000  вихід  arrive    M: Pgen=1, P0=1, CPU1=1, CPU2=1, CH21=1, ARR=2
+t=    5.0000  вхід   prim      M: Pgen=1, CPU1=1, CPU2=1, CH21=1, ARR=2   -> вихід у t=7.0000
+t=    5.0000  вхід   arrive    M: CPU1=1, CPU2=1, CH21=1, ARR=2   -> вихід у t=7.5000
+t=    7.0000  вихід  prim      M: B1=1, CPU1=1, CPU2=1, CH21=1, ARR=2
+t=    7.0000  вхід   rem       M: CPU1=1, CPU2=1, CH21=1, ARR=2   -> вихід у t=7.0000
+t=    7.0000  вихід  rem       M: C1=1, CPU1=1, CPU2=1, CH21=1, ARR=2
+t=    7.5000  вихід  arrive    M: Pgen=1, P0=1, C1=1, CPU1=1, CPU2=1, CH21=1, ARR=3
+t=    7.5000  вихід  ch12      M: Pgen=1, P0=1, C1=1, Q2=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=3
+t=    7.5000  вхід   arrive    M: P0=1, C1=1, Q2=1, CPU1=1, CPU2=1, CH12=1, CH21=1, ARR=3   -> вихід у t=10.0000
+t=    7.5000  вхід   search2   M: P0=1, C1=1, CPU1=1, CH12=1, CH21=1, ARR=3   -> вихід у t=25.5000
+t=    7.5000  вхід   prim      M: C1=1, CPU1=1, CH12=1, CH21=1, ARR=3   -> вихід у t=9.5000
+t=    7.5000  вхід   ch12      M: CPU1=1, CH21=1, ARR=3   -> вихід у t=10.5000
+t=    9.5000  вихід  prim      M: B1=1, CPU1=1, CH21=1, ARR=3
+t=    9.5000  вхід   rem       M: CPU1=1, CH21=1, ARR=3   -> вихід у t=9.5000
+t=    9.5000  вихід  rem       M: C1=1, CPU1=1, CH21=1, ARR=3
+t=   10.0000  вихід  arrive    M: Pgen=1, P0=1, C1=1, CPU1=1, CH21=1, ARR=4
+t=   10.0000  вхід   prim      M: Pgen=1, C1=1, CPU1=1, CH21=1, ARR=4   -> вихід у t=12.0000
+t=   10.0000  вхід   arrive    M: C1=1, CPU1=1, CH21=1, ARR=4   -> вихід у t=12.5000
+t=   10.5000  вихід  ch12      M: C1=1, Q2=1, CPU1=1, CH12=1, CH21=1, ARR=4
+t=   10.5000  вхід   ch12      M: Q2=1, CPU1=1, CH21=1, ARR=4   -> вихід у t=13.5000
+t=   12.0000  вихід  prim      M: B1=1, Q2=1, CPU1=1, CH21=1, ARR=4
+t=   12.0000  вхід   rem       M: Q2=1, CPU1=1, CH21=1, ARR=4   -> вихід у t=12.0000
+t=   12.0000  вихід  rem       M: C1=1, Q2=1, CPU1=1, CH21=1, ARR=4
+t=   12.5000  вихід  arrive    M: Pgen=1, P0=1, C1=1, Q2=1, CPU1=1, CH21=1, ARR=5
+t=   12.5000  вхід   arrive    M: P0=1, C1=1, Q2=1, CPU1=1, CH21=1, ARR=5   -> вихід у t=15.0000
+t=   12.5000  вхід   prim      M: C1=1, Q2=1, CPU1=1, CH21=1, ARR=5   -> вихід у t=14.5000
+t=   13.5000  вихід  ch12      M: C1=1, Q2=2, CPU1=1, CH12=1, CH21=1, ARR=5
+t=   13.5000  вхід   ch12      M: Q2=2, CPU1=1, CH21=1, ARR=5   -> вихід у t=16.5000
+t=   14.5000  вихід  prim      M: B1=1, Q2=2, CPU1=1, CH21=1, ARR=5
+t=   14.5000  вхід   rem       M: Q2=2, CPU1=1, CH21=1, ARR=5   -> вихід у t=14.5000
+t=   14.5000  вихід  rem       M: C1=1, Q2=2, CPU1=1, CH21=1, ARR=5
+t=   15.0000  вихід  arrive    M: Pgen=1, P0=1, C1=1, Q2=2, CPU1=1, CH21=1, ARR=6
+t=   15.0000  вхід   arrive    M: P0=1, C1=1, Q2=2, CPU1=1, CH21=1, ARR=6   -> вихід у t=17.5000
+t=   15.0000  вхід   prim      M: C1=1, Q2=2, CPU1=1, CH21=1, ARR=6   -> вихід у t=17.0000
+t=   16.5000  вихід  ch12      M: C1=1, Q2=3, CPU1=1, CH12=1, CH21=1, ARR=6
+t=   16.5000  вхід   ch12      M: Q2=3, CPU1=1, CH21=1, ARR=6   -> вихід у t=19.5000
+t=   17.0000  вихід  prim      M: B1=1, Q2=3, CPU1=1, CH21=1, ARR=6
+t=   17.0000  вхід   rem       M: Q2=3, CPU1=1, CH21=1, ARR=6   -> вихід у t=17.0000
+t=   17.0000  вихід  rem       M: C1=1, Q2=3, CPU1=1, CH21=1, ARR=6
+t=   17.5000  вихід  arrive    M: Pgen=1, P0=1, C1=1, Q2=3, CPU1=1, CH21=1, ARR=7
